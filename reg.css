@@ -1,0 +1,44 @@
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+    background: linear-gradient(#0c09b4, #024721);
+}
+
+label {
+    font-size: large;
+    font-style: italic;
+}
+
+button {
+    width: 50%;
+    height: 30px;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    resize: none;
+}
+
+.int {
+    padding-left: 25px;
+}
+
+.reg_list {
+    background: #fff;
+    padding: 20px;
+    width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 1px 30px 0 rgba(0, 0, 0, 0.14), 0 0px 0px 0 rgba(0, 0, 0, .12), 0 0px 0px 0px rgba(0, 0, 0, .3);
+    border-radius: 10px;
+}
+
+.reg_list_header {
+    padding: 20px;
+    text-align: center;
+}
