@@ -14,30 +14,34 @@
         <div class="reg_list_header">
             <h1 id="header">Регистрация</h1>
         </div>
-        <label>Логин:</label><input type="text" class="int"></input>
+        <label>Фамилия:</label><input type="text" class="int" id="SecName"></input>
         <br>
-        <label>Пароль:</label><input type="password" class="int"></input>
+        <label>Имя:</label><input type="text" class="int" id="FirName"></input>
         <br>
-        <label>Проверка пароля:</label><input type="password" class="int"></nput>
+        <label>Отчество:</label><input type="text" class="int" id="ThrName"></input>
         <br>
-        <label>ФИО:</label><input type="text" class="int"></input>
+        <label>Пол:</label><input type="radio" name="sc" class="int" id="SxChoose" checked>Женский</input><input type="radio" name="sc" class="int" id="SxChoose">Мужской</input>
         <br>
-        <label>Пол:</label><input type="radio" class="int">Женский</input><input type="radio" class="int">Мужской</input>
+        <label>Дата рождения:</label><input type="date" class="int" id="BirthDate"></input>
         <br>
-        <label>Дата рождения:</label><input type="date" class="int"></input>
+        <label>Номер телефона:</label><input type="tel" class="int" id="TelNum" placeholder="+7 (900) 123-45-67" pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}>"></input>
         <br>
-        <label>Номер телефона:</label><input type="tel" class="int"></input>
+        <label>Опыт работы:</label><input type="checkbox" class="int" id="Work">Да</input>
         <br>
-        <label>Опыт работы:</label><input type="checkbox" class="int">Да</input><input type="checkbox" class="int">Нет</input>
+        <label>Почта:</label><input type="email" class="int" id="EMail"></input>
         <br>
-        <label>Почта:</label><input type="email" class="int"></input>
+        <label>Логин:</label><input type="text" class="int" id="Login"></input>
         <br>
+        <label>Пароль:</label><input type="password" class="int" id="Pass"></input>
+        <br>
+        <label>Проверка пароля:</label><input type="password" class="int" id="CheckPass"></input>
         <br>
         <label>Доп. информация:</label>
         <br>
-        <textarea></textarea>
-        <button>Принять</button><button>Очистить</button>
+        <textarea id="MoreInfo"></textarea>
+        <button id="Accept">Принять</button><button id="Clear">Очистить</button>
     </div>
+    <script src="reg.js "></script>
 </body>
 
 </html>

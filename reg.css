@@ -42,3 +42,8 @@ textarea {
     padding: 20px;
     text-align: center;
 }
+
+input {
+    margin: 0;
+    padding: 0;
+}
