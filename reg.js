@@ -41,6 +41,11 @@ function Accept() {
 
 $Accept.addEventListener('click', Accept);
 $Clear.addEventListener('click', Clear);
+$TelNum.addEventListener('keypress', e => {
+    // Отменяем ввод не цифр
+    if (!/\d/.test(e.key))
+        e.preventDefault();
+});
 
 
 function Clear() {
