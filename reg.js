@@ -14,29 +14,73 @@ var $Accept = document.querySelector('#Accept');
 var $Clear = document.querySelector('#Clear');
 
 var i;
+var job;
+var sxchoose;
+var accept = 0;//flag
+var correct_text;
+
+var DBObject = {
+    name: '',
+    surname: '',
+    thirdname: '',
+    sxChoose: '',
+    birthdate: '',
+    telnum: '',
+    work: '',
+    email: '',
+    login: '',
+    pass: '',
+    moreinfo: ''
+}
 
 function Accept() {
-    console.log($SecName.value)
-    console.log($FirName.value);
-    console.log($ThrName.value);
-    //console.log($SxChoose.value);
+
+
     $SxChoose.forEach(element => {
         if (element.checked) {
-            console.log(element.nextSibling.data);
+            sxchoose = element.nextSibling.data;
         }
     });
-    console.log($BirthDate.value);
-    console.log($TelNum.value);
     if ($Work.checked) {
-        console.log("Опыт работы есть!");
+        job = "Опыт работы есть!";
     } else {
-        console.log("Опыта работы нет!");
+        job = "Опыта работы нет!";
     }
-    console.log($EMail.value);
-    console.log($Login.value);
-    console.log($Pass.value);
-    console.log($CheckPass.value);
-    console.log($MoreInfo.value);
+
+    DBObject.name = $FirName.value;
+    DBObject.surname = $SecName.value;
+    DBObject.thirdname = $ThrName.value;
+    if($FirName.value[0].toU)
+    DBObject.sxChoose = sxchoose;
+    DBObject.birthdate = $BirthDate.value;
+    DBObject.telnum = $TelNum.options.first; //!!!!!!!!!!!!!!
+    DBObject.work = job;
+    DBObject.email = $EMail.value; //!!!!!!!!!!!!!!
+    DBObject.login = $Login.value;
+
+    DBObject.pass = $Pass.value;
+    if ($CheckPass.value != $Pass.value) {
+        alert("Данные не совпадают!");
+        $Pass.value = "";
+        $CheckPass.value = "";
+    }
+    //
+
+    DBObject.moreinfo = $MoreInfo.value;
+    if (accept == 1) {
+        console.log(DBObject.name)
+        console.log(DBObject.surname);
+        console.log(DBObject.thirdname);
+        console.log(DBObject.sxChoose);
+        console.log(DBObject.birthdate);
+        console.log(DBObject.telnum);
+        console.log(DBObject.work);
+        console.log(DBObject.email);
+        console.log(DBObject.pass);
+        console.log(DBObject.moreinfo);
+    }
+
+
 }
 
 $Accept.addEventListener('click', Accept);
@@ -45,6 +89,25 @@ $TelNum.addEventListener('keypress', e => {
     // Отменяем ввод не цифр
     if (!/\d/.test(e.key))
         e.preventDefault();
+});
+//Check for russian symbols
+$FirName.addEventListener('keypress', e => {
+    if (!/^[а-яё]*$/i.test(e.key)) {
+        e.preventDefault();
+    } else {}
+});
+
+$SecName.addEventListener('keypress', e => {
+    if (!/^[а-яё]*$/i.test(e.key)) {
+        e.preventDefault();
+    }
+});
+
+$ThrName.addEventListener('keypress', e => {
+    if (!/^[а-яё]*$/i.test(e.key)) {
+        e.preventDefault();
+    }
+
 });
 
 
