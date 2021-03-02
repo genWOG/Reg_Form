@@ -16,22 +16,10 @@ var $Clear = document.querySelector('#Clear');
 var i;
 var job;
 var sxchoose;
-var accept = 0;//flag
+var accept = 0; //flag
 var correct_text;
 
-var DBObject = {
-    name: '',
-    surname: '',
-    thirdname: '',
-    sxChoose: '',
-    birthdate: '',
-    telnum: '',
-    work: '',
-    email: '',
-    login: '',
-    pass: '',
-    moreinfo: ''
-}
+var DBObject = {}
 
 function Accept() {
 
@@ -50,7 +38,6 @@ function Accept() {
     DBObject.name = $FirName.value;
     DBObject.surname = $SecName.value;
     DBObject.thirdname = $ThrName.value;
-    if($FirName.value[0].toU)
     DBObject.sxChoose = sxchoose;
     DBObject.birthdate = $BirthDate.value;
     DBObject.telnum = $TelNum.options.first; //!!!!!!!!!!!!!!
@@ -68,18 +55,9 @@ function Accept() {
 
     DBObject.moreinfo = $MoreInfo.value;
     if (accept == 1) {
-        console.log(DBObject.name)
-        console.log(DBObject.surname);
-        console.log(DBObject.thirdname);
-        console.log(DBObject.sxChoose);
-        console.log(DBObject.birthdate);
-        console.log(DBObject.telnum);
-        console.log(DBObject.work);
-        console.log(DBObject.email);
-        console.log(DBObject.pass);
-        console.log(DBObject.moreinfo);
+        console.log(DBObject);
     }
-
+    console.log(DBObject);
 
 }
 
@@ -112,12 +90,10 @@ $ThrName.addEventListener('keypress', e => {
 
 
 function Clear() {
-    console.log(document.getElementsByTagName("input").length);
     for (i = 0; i < document.getElementsByTagName("input").length; i++) {
-
         document.getElementsByTagName("input")[i].value = "";
         document.getElementsByTagName("input")[i].checked = false;
-        $MoreInfo.value = "";
     }
+    $MoreInfo.value = "";
 
 }
