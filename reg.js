@@ -16,10 +16,12 @@ var $Clear = document.querySelector('#Clear');
 var i;
 var job;
 var sxchoose;
-var accept = 0; //flag
+var accept = true; //flag
 var correct_text;
+var see;
+var date_now = new Date(); //current date
 
-var DBObject = {}
+var DBObject = {};
 
 function Accept() {
 
@@ -34,31 +36,34 @@ function Accept() {
     } else {
         job = "Опыта работы нет!";
     }
-
-    DBObject.name = $FirName.value;
-    DBObject.surname = $SecName.value;
-    DBObject.thirdname = $ThrName.value;
-    DBObject.sxChoose = sxchoose;
-    DBObject.birthdate = $BirthDate.value;
-    DBObject.telnum = $TelNum.options.first; //!!!!!!!!!!!!!!
-    DBObject.work = job;
-    DBObject.email = $EMail.value; //!!!!!!!!!!!!!!
-    DBObject.login = $Login.value;
-
-    DBObject.pass = $Pass.value;
-    if ($CheckPass.value != $Pass.value) {
-        alert("Данные не совпадают!");
+    if ($CheckPass.value != $Pass.value || $Pass.value == "") {
+        alert("Данные не совпадают! или пароль пустой");
         $Pass.value = "";
         $CheckPass.value = "";
+        accept = false;
     }
-    //
-
-    DBObject.moreinfo = $MoreInfo.value;
-    if (accept == 1) {
+    see = $BirthDate.getFullYear();
+    console.log(see);
+    if (accept == true) {
+        DBObject.name = $FirName.value;
+        DBObject.surname = $SecName.value;
+        DBObject.thirdname = $ThrName.value;
+        DBObject.sxChoose = sxchoose;
+        DBObject.birthdate = $BirthDate.value;
+        DBObject.telnum = $TelNum.options.first; //!!!!!!!!!!!!!!
+        DBObject.work = job;
+        DBObject.email = $EMail.value; //!!!!!!!!!!!!!!
+        DBObject.login = $Login.value;
+        DBObject.pass = $Pass.value;
+        DBObject.moreinfo = $MoreInfo.value;
+        if (accept == 1) {
+            console.log(DBObject);
+        }
         console.log(DBObject);
+    } else {
+        console.log("Что-то не так!");
+        accept = true;
     }
-    console.log(DBObject);
-
 }
 
 $Accept.addEventListener('click', Accept);
