@@ -20,6 +20,8 @@ var accept = true; //flag
 var correct_text;
 var see;
 var date_now = new Date(); //current date
+var bd;
+var minus;
 
 var DBObject = {};
 
@@ -31,6 +33,14 @@ function Accept() {
             sxchoose = element.nextSibling.data;
         }
     });
+    bd = $BirthDate.value;
+    minus = (date_now - bd) / (60 * 60 * 24 * 1000);
+    bd = bd.substring(0, 4);
+    date_now.getFullYear();
+    console.log(typeof($BirthDate));
+    console.log("mememe  " + date_now.getFullYear());
+    console.log("mememe  " + $BirthDate.getFullYear());
+    // console.log("mememe  " + date_now.getFullYear());
     if ($Work.checked) {
         job = "Опыт работы есть!";
     } else {
@@ -42,7 +52,7 @@ function Accept() {
         $CheckPass.value = "";
         accept = false;
     }
-    see = $BirthDate.getFullYear();
+    //see = $BirthDate.getFullYear();
     console.log(see);
     if (accept == true) {
         DBObject.name = $FirName.value;
