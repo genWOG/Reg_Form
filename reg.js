@@ -56,7 +56,7 @@ function Accept() {
         $CheckPass.value = "";
         accept = false;
     }
-    //if(FirName.value[0])
+    //sdsdsdsif(FirName.value[0])
     //see = $BirthDate.getFullYear();
     console.log(see);
     if (accept == true) {
