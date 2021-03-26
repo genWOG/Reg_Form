@@ -20,8 +20,14 @@ var accept = true; //flag
 var correct_text;
 var see;
 var date_now = new Date(); //current date
+var now = new Date(date_now.getFullYear(), date_now.getMonth(), date_now.getDate())
 var bd;
+var users_bd;
 var minus;
+var age;
+var bd_year;
+var bd_mnth;
+var bd_day;
 
 var DBObject = {};
 
@@ -34,13 +40,11 @@ function Accept() {
         }
     });
     bd = $BirthDate.value;
-    minus = (date_now - bd) / (60 * 60 * 24 * 1000);
-    bd = bd.substring(0, 4);
-    date_now.getFullYear();
-    console.log(typeof($BirthDate));
-    console.log("mememe  " + date_now.getFullYear());
-    console.log("mememe  " + $BirthDate.getFullYear());
-    // console.log("mememe  " + date_now.getFullYear());
+    bd_year = bd.substring(0, 4);
+    bd_mnth = bd.substring(5, 7);
+    bd_day = bd.substring(8, 10);
+    users_bd = new Date(bd_year, bd_mnth, bd_day);
+    age = now.getFullYear() - users_bd.getFullYear();
     if ($Work.checked) {
         job = "Опыт работы есть!";
     } else {
@@ -52,6 +56,7 @@ function Accept() {
         $CheckPass.value = "";
         accept = false;
     }
+    //if(FirName.value[0])
     //see = $BirthDate.getFullYear();
     console.log(see);
     if (accept == true) {
