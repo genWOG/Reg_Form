@@ -28,12 +28,17 @@ var age;
 var bd_year;
 var bd_mnth;
 var bd_day;
+var isFirstLetterUppercase;
+var regexp = /^[А-ЯЁ]/;
 
 var DBObject = {};
 
 function Accept() {
 
-
+    //isFirstLetterUppercase = /^[A-Z]/.test(yourString);
+    isUpperCase($FirName.value);
+    isUpperCase($SecName.value);
+    isUpperCase($ThrName.value);
     $SxChoose.forEach(element => {
         if (element.checked) {
             sxchoose = element.nextSibling.data;
@@ -55,6 +60,12 @@ function Accept() {
         $Pass.value = "";
         $CheckPass.value = "";
         accept = false;
+    }
+    if ($Pass.value.length < 10) {
+        alert("Пароль менее 10 символов");
+        accept = false;
+    } else {
+        accept = true;
     }
     //sdsdsdsif(FirName.value[0])
     //see = $BirthDate.getFullYear();
@@ -105,9 +116,7 @@ $ThrName.addEventListener('keypress', e => {
     if (!/^[а-яё]*$/i.test(e.key)) {
         e.preventDefault();
     }
-
 });
-
 
 function Clear() {
     for (i = 0; i < document.getElementsByTagName("input").length; i++) {
@@ -115,5 +124,13 @@ function Clear() {
         document.getElementsByTagName("input")[i].checked = false;
     }
     $MoreInfo.value = "";
+}
 
+function isUpperCase(str) {
+    if (regexp.test(str[0])) {
+        accept = true;
+    } else {
+        alert("Поля ФИО должны начинаться с большой буквы!");
+        accept = false;
+    }
 }
